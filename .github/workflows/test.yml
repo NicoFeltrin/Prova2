@@ -5,6 +5,7 @@ on: [push,pull_request]
 jobs:
   build:
 
+    if: "!startsWith(github.ref, 'refs/heads/feature/')"
     runs-on: ubuntu-latest
 
     steps:
