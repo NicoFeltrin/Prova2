@@ -6,10 +6,20 @@ package it.unipd.mtss;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
 
 public class IntegerToRomanTest {
+
+    @Test
+    public void testClassIsInstantiable() {
+        try {
+            new IntegerToRoman();
+            new RomanPrinter();
+        }catch (Exception e) {
+            fail("I can't instantiate a class idk");
+        }
+    }
+
     @Test
     public void testConvert() {
         assertEquals("I", IntegerToRoman.convert(1));
@@ -41,6 +51,8 @@ public class IntegerToRomanTest {
         assertEquals("DCCC", IntegerToRoman.convert(800));
         assertEquals("CM", IntegerToRoman.convert(900));
         assertEquals("M", IntegerToRoman.convert(1000));
+
+
     }
 
     @Test
