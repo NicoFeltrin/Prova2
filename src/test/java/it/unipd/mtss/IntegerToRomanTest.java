@@ -7,6 +7,7 @@ package it.unipd.mtss;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class IntegerToRomanTest {
     @Test
@@ -40,5 +41,12 @@ public class IntegerToRomanTest {
         assertEquals("DCCC", IntegerToRoman.convert(800));
         assertEquals("CM", IntegerToRoman.convert(900));
         assertEquals("M", IntegerToRoman.convert(1000));
+    }
+
+    @Test
+    public void testIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> IntegerToRoman.convert(0));
+        assertThrows(IllegalArgumentException.class, () -> IntegerToRoman.convert(1001));
+        assertThrows(IllegalArgumentException.class, () -> IntegerToRoman.convert(-1));
     }
 }
